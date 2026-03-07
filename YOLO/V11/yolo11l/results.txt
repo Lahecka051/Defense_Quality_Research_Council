@@ -1,0 +1,18 @@
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 1261/1261 5.4it/s 3:53
+                   all      20172      41472      0.978      0.927      0.954      0.874
+          Fishing_Boat       7965       8508       0.99      0.993      0.995      0.934
+         Merchant_Ship       2398       2417          1      0.998      0.995      0.956
+               Warship       7158       7976      0.992      0.993      0.995      0.959
+                Person        849       1069      0.834      0.604       0.71       0.38
+                  Bird       1509       1574       0.96       0.82        0.9       0.74
+            Fixed_Wing       7062       8487          1      0.982      0.995       0.97
+           Rotary_Wing       2630       2844          1          1      0.995      0.981
+                   UAV       5071       5708      0.999      0.975      0.994      0.932
+               Leaflet       1444       1444          1      0.904      0.966      0.895
+            Trash_Bomb       1445       1445      0.999          1      0.995      0.989
+Speed: 0.5ms preprocess, 2.2ms inference, 0.0ms loss, 1.8ms postprocess per image
+Results saved to G:\VSCode\Stable_diffution\stable-diffusion-webui-reForge\runs\detect\val2
+
+=== YOLOv11-L 결과 ===
+mAP50:    0.9540
+mAP50-95: 0.8736
