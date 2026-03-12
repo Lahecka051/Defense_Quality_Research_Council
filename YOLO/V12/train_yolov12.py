@@ -11,10 +11,10 @@ def main():
     results_summary = []
 
     for scale in model_scales:
-        model_name = f"yolo11{scale}"
+        model_name = f"yolo12{scale}"
         print(f"\n {model_name} 학습 시작...")
 
-        # 모델 로드 (yolo11n.pt, yolo11s.pt ...)
+        # 모델 로드 (yolo12n.pt, yolo12s.pt ...)
         model = YOLO(f"{model_name}.pt")
 
         # 2. 학습 (Train)
