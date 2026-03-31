@@ -1,17 +1,17 @@
 """
-SSFA: Small-object Selective Fusion Attention
+SCA: Selective Cross-Attention
 
-VIVID-Det 모듈 2. Backbone→Projector 간극에 삽입.
+SOD-DETR SCA 모듈. Backbone→Projector 간극에 삽입.
 CNN Branch 고해상도 특징 + ViT Attention Prior → SOPM → Top-K 선택적 Cross-Attention.
 
 @changelog
-[v1.0.0] 2026-03-10 - 초기 구현. VIVID-Det v2.2 기술검증 보고서 기반.
+[v1.0.0] 2026-03-10 - 초기 구현. SOD-DETR 기반.
   - CNNBranch: stride-8, GroupNorm(32), 256ch
   - AttentionPriorExtractor: DINOv2 Block4 Self-Attn hook
   - SOPMHead: concat(D3, attn_prior) → Sigmoid
   - SelectiveCrossAttention: Top-K 25%, 2D sinusoidal PE
   - SOPMFocalLoss: GT small heatmap 직접 감독
-  - SSFA: 통합 모듈, alpha=0.01 초기화
+  - SCA: 통합 모듈, alpha=0.01 초기화
 """
 
 import math
@@ -492,14 +492,14 @@ class SOPMFocalLoss(nn.Module):
 
 
 # ---------------------------------------------------------------------------
-# SSFA 통합 모듈
+# SCA 통합 모듈
 # ---------------------------------------------------------------------------
 
-class SSFA(nn.Module):
-    """Small-object Selective Fusion Attention.
+class SCA(nn.Module):
+    """Selective Cross-Attention.
 
     Backbone→Projector 간극에서 ViT 특징에 CNN 고해상도 정보를 선택적 융합.
-    SOPM (Small Object Possibility Map) 생성하여 SAQG, TFCM에 전달.
+    소형 객체 히트맵 생성 후 Top-K 25% 선택적 교차 어텐션으로 ViT 특징 강화.
 
     설계 근거:
     - alpha=0.01 초기화: 피어리뷰 C1 반영, gradient cold start 방지.
@@ -591,7 +591,7 @@ class SSFA(nn.Module):
 
         if attn_module is None:
             print(
-                "[SSFA WARNING] DINOv2 Block4 attention module not found.\n"
+                "[SCA WARNING] DINOv2 Block4 attention module not found.\n"
                 "  Falling back to D3-only SOPM (no Attn Prior).\n"
                 "  Check encoder structure and update register_attn_hook()."
             )
@@ -606,7 +606,7 @@ class SSFA(nn.Module):
         images: torch.Tensor,
         targets: Optional[List[dict]] = None,
     ) -> Tuple[List[torch.Tensor], torch.Tensor, dict]:
-        """SSFA forward pass.
+        """SCA forward pass.
 
         Args:
             feats: DINOv2 encoder 출력. 4개 텐서 리스트 (out_feature_indexes=[3,6,9,12]).
