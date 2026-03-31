@@ -1,47 +1,46 @@
+# 학습 체크포인트/가중치
+*.pth
+*.pt
+*.onnx
+*.engine
+*.trt
+
+# 데이터셋
+rfdetr_data/
+yolo_format/
+
+# 학습 결과
+runs/
+runs_compare/
+wandb/
+outputs/
+
+# Python
 __pycache__/
 *.pyc
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+*.pyo
+*.egg-info/
+dist/
+build/
+*.so
 
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+# 가상환경
+.venv/
+venv/
+*.conda/
+
+# IDE
+.vscode/
 .idea/
+*.swp
+*.swo
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# OS
+Thumbs.db
+.DS_Store
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-/coverage/
+# Jupyter
+.ipynb_checkpoints/
 
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# 로그
+*.log
