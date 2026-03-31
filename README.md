@@ -1,5 +1,8 @@
-# VIVID-DETR
-### Video-Integrated Vision for Intelligent Detection of Small Objects on RF-DETR
+# SOD-DETR
+### Transformer Based Small Object Detection with Selective Feature Fusion
+
+# Purpose
+### For submission of KCI papers to the Defense Quality Research Association
 
 ---
 
