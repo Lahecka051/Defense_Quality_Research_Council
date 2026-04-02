@@ -1,3 +1,5 @@
+<img width="239" height="45" alt="Image" src="https://github.com/user-attachments/assets/a75f96d7-fe6d-4071-86b5-778640ea3938" />
+
 # SOD-DETR
 ### Transformer Based Small Object Detection with Selective Feature Fusion
 
