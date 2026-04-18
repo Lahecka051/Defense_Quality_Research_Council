@@ -3,9 +3,6 @@
 # SOD-DETR
 ### Transformer Based Small Object Detection with Selective Feature Fusion
 
-# Purpose
-### For submission of KCI papers to the Defense Quality Research Association
-
 ---
 
 # **Used_Datasets**
