@@ -42,8 +42,6 @@ from rfdetr.models.saqg import SAQG
 # SOD: SQALB (Scale-Quality Aware Loss Balancer)
 from rfdetr.models.sqalb import SQALB
 from rfdetr.util import box_ops
-# SOD: NWD Loss (Scale-Adaptive NWD/CIoU Loss)
-from rfdetr.models.nwd_loss import nwd_adaptive_loss
 from rfdetr.util.misc import (
     NestedTensor,
     accuracy,
@@ -1099,9 +1097,5 @@ def build_criterion_and_postprocessors(args):
     if getattr(args, "sca_enabled", False):
         criterion.sqalb = SQALB(num_decoder_layers=args.dec_layers, resolution=getattr(args, "resolution", 576))
 
-    # SOD: NWD Loss config wiring
-    criterion._nwd_loss_enabled = getattr(args, 'nwd_loss_enabled', False)
-    criterion._nwd_loss_threshold = getattr(args, 'nwd_loss_threshold', 0.0024)
-    criterion._nwd_loss_C = getattr(args, 'nwd_loss_C', 0.5)
 
     return criterion, postprocess
