@@ -1,0 +1,37 @@
+# ============================================================
+# SOD-DETR: Transformer Based Small Object Detection
+# ============================================================
+# Python >= 3.10
+# CUDA 12.8 / PyTorch 2.10.0+cu128 (benchmark environment)
+# ============================================================
+
+# --- Core deep learning ---
+# torch / torchvision은 CUDA 버전에 맞춰 별도 설치 권장:
+#   pip install torch==2.10.0 torchvision --index-url https://download.pytorch.org/whl/cu128
+torch>=2.1.0
+torchvision>=0.16.0
+
+# --- RF-DETR (SOD-DETR baseline) ---
+# Source_codes/modules의 파일들은 rfdetr 1.5.2의 rfdetr/models/ 경로에 덮어쓰기/추가하여 사용
+rfdetr==1.5.2
+peft>=0.10.0
+
+# --- YOLO (YOLOv8/v11/v12 비교 학습) ---
+ultralytics>=8.3.0
+
+# --- Numerical / scientific ---
+numpy>=1.24.0
+scipy>=1.11.0
+
+# --- Data / I/O ---
+pandas>=2.0.0
+tqdm>=4.66.0
+PyYAML>=6.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# --- COCO evaluation (RF-DETR 평가용) ---
+pycocotools>=2.0.7
+
+# --- Logging ---
+tensorboard>=2.15.0
